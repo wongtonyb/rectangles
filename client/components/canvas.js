@@ -16,16 +16,16 @@ class Canvas extends Component {
         fill: "red",
         //coordinates topleft, topright, botleft, botright
         tlc: function() {
-          return [this.x, this.y];
+          return { x: this.x, y: this.y };
         },
         trc: function() {
-          return [this.x + this.width, this.y];
+          return { x: this.x + this.width, y: this.y };
         },
         blc: function() {
-          return [this.x, this.y + this.height];
+          return { x: this.x, y: this.y + this.height };
         },
         brc: function() {
-          return [this.x + this.width, this.y + this.height];
+          return { x: this.x + this.width, y: this.y + this.height };
         }
       },
       rect2: {
@@ -35,16 +35,16 @@ class Canvas extends Component {
         height: 100,
         fill: "blue",
         tlc: function() {
-          return [this.x, this.y];
+          return { x: this.x, y: this.y };
         },
         trc: function() {
-          return [this.x + this.width, this.y];
+          return { x: this.x + this.width, y: this.y };
         },
         blc: function() {
-          return [this.x, this.y + this.height];
+          return { x: this.x, y: this.y + this.height };
         },
         brc: function() {
-          return [this.x + this.width, this.y + this.height];
+          return { x: this.x + this.width, y: this.y + this.height };
         }
       }
     };
@@ -67,39 +67,39 @@ class Canvas extends Component {
         <div id="rect-info">
           <h3>Red Rectangle</h3>
           <h3>
-            Top Left Coordinate: ({this.state.rect1.tlc()[0]},
-            {this.state.rect1.tlc()[1]})
+            Top Left Coordinate: ({this.state.rect1.tlc().x},
+            {this.state.rect1.tlc().y})
           </h3>
           <h3>
-            Top Right Coordinate: ({this.state.rect1.trc()[0]},
-            {this.state.rect1.trc()[1]})
+            Top Right Coordinate: ({this.state.rect1.trc().x},
+            {this.state.rect1.trc().y})
           </h3>
           <h3>
-            Bot Left Coordinate: ({this.state.rect1.blc()[0]},
-            {this.state.rect1.blc()[1]})
+            Bot Left Coordinate: ({this.state.rect1.blc().x},
+            {this.state.rect1.blc().y})
           </h3>
           <h3>
-            Bot Right Coordinate: ({this.state.rect1.brc()[0]},
-            {this.state.rect1.brc()[1]})
+            Bot Right Coordinate: ({this.state.rect1.brc().x},
+            {this.state.rect1.brc().y})
           </h3>
           <br />
           <br />
           <h3>Blue Rectangle</h3>
           <h3>
-            Top Left Coordinate: ({this.state.rect2.tlc()[0]},
-            {this.state.rect2.tlc()[1]})
+            Top Left Coordinate: ({this.state.rect2.tlc().x},
+            {this.state.rect2.tlc().y})
           </h3>
           <h3>
-            Top Right Coordinate: ({this.state.rect2.trc()[0]},
-            {this.state.rect2.trc()[1]})
+            Top Right Coordinate: ({this.state.rect2.trc().x},
+            {this.state.rect2.trc().y})
           </h3>
           <h3>
-            Bot Left Coordinate: ({this.state.rect2.blc()[0]},
-            {this.state.rect2.blc()[1]})
+            Bot Left Coordinate: ({this.state.rect2.blc().x},
+            {this.state.rect2.blc().y})
           </h3>
           <h3>
-            Bot Right Coordinate: ({this.state.rect2.brc()[0]},
-            {this.state.rect2.brc()[1]})
+            Bot Right Coordinate: ({this.state.rect2.brc().x},
+            {this.state.rect2.brc().y})
           </h3>
           <br />
           <h5>
@@ -188,7 +188,7 @@ class Canvas extends Component {
           </label>
           <br />
           <h4>
-            For best results, make sure rectangle are within the canvas's range.
+            For best results, make sure rectangle are within the canvas box
             <br />
             Max width of canvas is 800
             <br />
@@ -198,16 +198,16 @@ class Canvas extends Component {
           </h4>
           <Analyze
             rect1={{
-              tlc: this.state.rect1.tlc(),
-              trc: this.state.rect1.trc(),
-              blc: this.state.rect1.blc(),
-              brc: this.state.rect1.brc()
+              tl: this.state.rect1.tlc(),
+              tr: this.state.rect1.trc(),
+              bl: this.state.rect1.blc(),
+              br: this.state.rect1.brc()
             }}
             rect2={{
-              tlc: this.state.rect2.tlc(),
-              trc: this.state.rect2.trc(),
-              blc: this.state.rect2.blc(),
-              brc: this.state.rect2.brc()
+              tl: this.state.rect2.tlc(),
+              tr: this.state.rect2.trc(),
+              bl: this.state.rect2.blc(),
+              br: this.state.rect2.brc()
             }}
           />
         </div>

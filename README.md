@@ -25,7 +25,8 @@ nodemon server
 
 open a browser (preferably Chrome) and direct to localhost:4000
 
-## Test Driven Development (TDD)
+# Test Driven Development (TDD)
 
 Direct to rectangles/tdd to view algorithm and corresponding test specs
+
 Mocha and chai are used for testing
