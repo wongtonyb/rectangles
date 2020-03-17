@@ -4,7 +4,7 @@ class Home extends Component {
   render() {
     return (
       <div className="comp" id="home">
-        HOME
+        <h1 id="title">Rectangles</h1>
       </div>
     );
   }
