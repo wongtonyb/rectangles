@@ -33,34 +33,34 @@ const intersection = (red, blue) => {
   let pinside = [];
   //check blue in red
   if (
-    blue.tl.x > red.tl.x &&
-    blue.tl.x < red.br.x &&
-    blue.tl.y > red.tl.y &&
-    blue.tl.y < red.br.y
+    blue.tl.x >= red.tl.x &&
+    blue.tl.x <= red.br.x &&
+    blue.tl.y >= red.tl.y &&
+    blue.tl.y <= red.br.y
   ) {
     pinside.push("tl");
   }
   if (
-    blue.tr.x < red.tr.x &&
-    blue.tr.x > red.bl.x &&
-    blue.tr.y > red.tr.y &&
-    blue.tr.y < red.bl.y
+    blue.tr.x <= red.tr.x &&
+    blue.tr.x >= red.bl.x &&
+    blue.tr.y >= red.tr.y &&
+    blue.tr.y <= red.bl.y
   ) {
     pinside.push("tr");
   }
   if (
-    blue.bl.x > red.bl.x &&
-    blue.bl.x < red.tr.x &&
-    blue.bl.y < red.bl.y &&
-    blue.bl.y > red.tr.y
+    blue.bl.x >= red.bl.x &&
+    blue.bl.x <= red.tr.x &&
+    blue.bl.y <= red.bl.y &&
+    blue.bl.y >= red.tr.y
   ) {
     pinside.push("bl");
   }
   if (
-    blue.br.x < red.br.x &&
-    blue.br.x > red.tl.x &&
-    blue.br.y < red.br.y &&
-    blue.br.y > red.tl.y
+    blue.br.x <= red.br.x &&
+    blue.br.x >= red.tl.x &&
+    blue.br.y <= red.br.y &&
+    blue.br.y >= red.tl.y
   ) {
     pinside.push("br");
   }
@@ -68,34 +68,34 @@ const intersection = (red, blue) => {
   //check red in blue
   if (!pinside.length) {
     if (
-      red.tl.x > blue.tl.x &&
-      red.tl.x < blue.br.x &&
-      red.tl.y > blue.tl.y &&
-      red.tl.y < blue.br.y
+      red.tl.x >= blue.tl.x &&
+      red.tl.x <= blue.br.x &&
+      red.tl.y >= blue.tl.y &&
+      red.tl.y <= blue.br.y
     ) {
       pinside.push("tl");
     }
     if (
-      red.tr.x < blue.tr.x &&
-      red.tr.x > blue.bl.x &&
-      red.tr.y > blue.tr.y &&
-      red.tr.y < blue.bl.y
+      red.tr.x <= blue.tr.x &&
+      red.tr.x >= blue.bl.x &&
+      red.tr.y >= blue.tr.y &&
+      red.tr.y <= blue.bl.y
     ) {
       pinside.push("tr");
     }
     if (
-      red.bl.x > blue.bl.x &&
-      red.bl.x < blue.tr.x &&
-      red.bl.y < blue.bl.y &&
-      red.bl.y > blue.tr.y
+      red.bl.x >= blue.bl.x &&
+      red.bl.x <= blue.tr.x &&
+      red.bl.y <= blue.bl.y &&
+      red.bl.y >= blue.tr.y
     ) {
       pinside.push("bl");
     }
     if (
-      red.br.x < blue.br.x &&
-      red.br.x > blue.tl.x &&
-      red.br.y < blue.br.y &&
-      red.br.y > blue.tl.y
+      red.br.x <= blue.br.x &&
+      red.br.x >= blue.tl.x &&
+      red.br.y <= blue.br.y &&
+      red.br.y >= blue.tl.y
     ) {
       pinside.push("br");
     }
@@ -112,40 +112,60 @@ const intersection = (red, blue) => {
     if (pinside.includes("blue")) {
       //bottom intersection
       if (pinside.includes("tl") && pinside.includes("tr")) {
-        return [
-          [blue.tl.x, red.bl.y],
-          [blue.tr.x, red.br.y]
-        ];
+        if (blue.tl.y === red.bl.y) {
+          return false;
+        } else {
+          return [
+            [blue.tl.x, red.bl.y],
+            [blue.tr.x, red.br.y]
+          ];
+        }
       }
       //right intersection
       if (pinside.includes("tl") && pinside.includes("bl")) {
-        return [
-          [red.tr.x, blue.tl.y],
-          [red.br.x, blue.bl.y]
-        ];
+        if (blue.tl.x === red.tr.x) {
+          return false;
+        } else {
+          return [
+            [red.tr.x, blue.tl.y],
+            [red.br.x, blue.bl.y]
+          ];
+        }
       }
       //left intersection
       if (pinside.includes("tr") && pinside.includes("br")) {
-        return [
-          [red.tl.x, blue.tr.y],
-          [red.bl.x, blue.br.y]
-        ];
+        if (blue.tr.x === red.tl.x) {
+          return false;
+        } else {
+          return [
+            [red.tl.x, blue.tr.y],
+            [red.bl.x, blue.br.y]
+          ];
+        }
       }
       //top intersection
       if (pinside.includes("bl") && pinside.includes("br")) {
-        return [
-          [blue.bl.x, red.tl.y],
-          [blue.br.x, red.tr.y]
-        ];
+        if (blue.bl.y === red.tl.y) {
+          return false;
+        } else {
+          return [
+            [blue.bl.x, red.tl.y],
+            [blue.br.x, red.tr.y]
+          ];
+        }
       }
     }
     //red inside blue
     if (pinside.includes("red")) {
       if (pinside.includes("tl") && pinside.includes("tr")) {
-        return [
-          [red.tl.x, blue.bl.y],
-          [red.tr.x, blue.br.y]
-        ];
+        if (red.tl.y === blue.bl.y) {
+          return false;
+        } else {
+          return [
+            [red.tl.x, blue.bl.y],
+            [red.tr.x, blue.br.y]
+          ];
+        }
       }
       if (pinside.includes("tl") && pinside.includes("bl")) {
         return [
@@ -171,28 +191,44 @@ const intersection = (red, blue) => {
   if (pinside.length - 1 === 1) {
     if (pinside.includes("blue")) {
       if (pinside.includes("tl")) {
-        return [
-          [blue.tl.x, red.br.y],
-          [red.br.x, blue.tl.y]
-        ];
+        if (blue.tl.y === red.br.y || blue.tl.x === red.br.x) {
+          return false;
+        } else {
+          return [
+            [blue.tl.x, red.br.y],
+            [red.br.x, blue.tl.y]
+          ];
+        }
       }
       if (pinside.includes("tr")) {
-        return [
-          [blue.tr.x, red.bl.y],
-          [red.bl.x, blue.tr.y]
-        ];
+        if (blue.tr.y === red.bl.y || blue.tr.x === red.bl.x) {
+          return false;
+        } else {
+          return [
+            [blue.tr.x, red.bl.y],
+            [red.bl.x, blue.tr.y]
+          ];
+        }
       }
       if (pinside.includes("bl")) {
-        return [
-          [blue.bl.x, red.tr.y],
-          [red.tr.x, blue.bl.y]
-        ];
+        if (blue.bl.y === red.tr.y || blue.bl.x === red.tr.x) {
+          return false;
+        } else {
+          return [
+            [blue.bl.x, red.tr.y],
+            [red.tr.x, blue.bl.y]
+          ];
+        }
       }
       if (pinside.includes("br")) {
-        return [
-          [blue.br.x, red.tl.y],
-          [red.tl.x, blue.br.y]
-        ];
+        if (blue.br.y === red.tl.y || blue.br.x === red.tl.x) {
+          return false;
+        } else {
+          return [
+            [blue.br.x, red.tl.y],
+            [red.tl.x, blue.br.y]
+          ];
+        }
       }
     }
     if (pinside.includes("red")) {
@@ -222,6 +258,8 @@ const intersection = (red, blue) => {
       }
     }
   }
+  //default
+  return false;
 };
 
 module.exports = intersection;

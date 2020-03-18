@@ -77,6 +77,24 @@ describe("Intersection", () => {
         )
       ).to.equal(false);
     });
+    it("Returns false for partial-alignment", () => {
+      expect(
+        intersection(
+          {
+            tl: { x: 0, y: 0 },
+            tr: { x: 1, y: 0 },
+            bl: { x: 0, y: 1 },
+            br: { x: 1, y: 1 }
+          },
+          {
+            tl: { x: 1, y: 0 },
+            tr: { x: 2, y: 0 },
+            bl: { x: 1, y: 4 },
+            br: { x: 2, y: 4 }
+          }
+        )
+      ).to.equal(false);
+    });
   });
   //two points
   describe("Intersection with Two corners overlap", () => {
