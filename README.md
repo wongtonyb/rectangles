@@ -46,6 +46,9 @@ mocha adjacency.spec.js
 # Technologies/Libraries
 
 Javascript - Algo
+
 Mocha/Chai - TDD
+
 React - UI
+
 Konva - Shape Canvas
