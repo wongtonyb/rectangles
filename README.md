@@ -27,6 +27,25 @@ open a browser (preferably Chrome) and direct to localhost:4000
 
 # Test Driven Development (TDD)
 
-Direct to rectangles/tdd to view algorithm and corresponding test specs
+Mocha and Chai are used for testing
 
-Mocha and chai are used for testing
+Direct to tdd folder
+
+```
+cd tdd
+```
+
+Run desired test spec as follow
+
+```
+mocha intersection.spec.js
+mocha containment.spec.js
+mocha adjacency.spec.js
+```
+
+# Technologies/Libraries
+
+Javascript - Algo
+Mocha/Chai - TDD
+React - UI
+Konva - Shape Canvas
