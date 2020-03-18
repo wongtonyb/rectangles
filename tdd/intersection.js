@@ -25,6 +25,8 @@ br represents bot-right
 also to integrate with ui for effectively
 x will increase left to right
 y will increase top to bot (instead of the usual bot to top)
+
+note alignment of sides are not considered intersections in this function
 */
 
 const intersection = (red, blue) => {

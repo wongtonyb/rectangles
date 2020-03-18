@@ -18,7 +18,7 @@ export default function Analyze(props) {
       )}
       {c ? (
         <h3>
-          The {c[0]} rectangle is completely contained within <br />
+          The {c[0]} rectangle is entirely contained within <br />
           the {c[1]} rectangle
         </h3>
       ) : (

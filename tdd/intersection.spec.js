@@ -45,16 +45,16 @@ describe("Intersection", () => {
       expect(
         intersection(
           {
-            tl: { x: 4, y: 0 },
-            tr: { x: 7, y: 0 },
-            bl: { x: 4, y: 3 },
-            br: { x: 7, y: 3 }
-          },
-          {
             tl: { x: 5, y: 1 },
             tr: { x: 6, y: 1 },
             bl: { x: 5, y: 2 },
             br: { x: 6, y: 2 }
+          },
+          {
+            tl: { x: 4, y: 0 },
+            tr: { x: 7, y: 0 },
+            bl: { x: 4, y: 3 },
+            br: { x: 7, y: 3 }
           }
         )
       ).to.equal(false);

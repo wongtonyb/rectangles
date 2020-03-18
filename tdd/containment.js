@@ -1,3 +1,11 @@
+/*
+For the case of this function,
+Note if smaller rectangle is completely inside the bigger rectangle, 
+but aligned on one or more sides, it is still NOT considered wholly contained
+
+wholly contained will be defined as within the borders of the bigger rectangle (not touching)
+*/
+
 const containment = (red, blue) => {
   //check blue inside red
   if (
