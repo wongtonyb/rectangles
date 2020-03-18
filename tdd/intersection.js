@@ -114,7 +114,7 @@ const intersection = (red, blue) => {
     if (pinside.includes("blue")) {
       //bottom intersection
       if (pinside.includes("tl") && pinside.includes("tr")) {
-        if (blue.tl.y === red.bl.y) {
+        if (blue.tl.y === red.bl.y || blue.tl.x === red.bl.x) {
           return false;
         } else {
           return [
@@ -125,7 +125,7 @@ const intersection = (red, blue) => {
       }
       //right intersection
       if (pinside.includes("tl") && pinside.includes("bl")) {
-        if (blue.tl.x === red.tr.x) {
+        if (blue.tl.x === red.tr.x || blue.tl.y === red.tr.y) {
           return false;
         } else {
           return [
@@ -136,7 +136,7 @@ const intersection = (red, blue) => {
       }
       //left intersection
       if (pinside.includes("tr") && pinside.includes("br")) {
-        if (blue.tr.x === red.tl.x) {
+        if (blue.tr.x === red.tl.x || blue.tr.y === red.tl.y) {
           return false;
         } else {
           return [
@@ -147,7 +147,7 @@ const intersection = (red, blue) => {
       }
       //top intersection
       if (pinside.includes("bl") && pinside.includes("br")) {
-        if (blue.bl.y === red.tl.y) {
+        if (blue.bl.y === red.tl.y || blue.bl.x === red.tl.x) {
           return false;
         } else {
           return [

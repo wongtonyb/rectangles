@@ -22,7 +22,7 @@ export default function Analyze(props) {
           the {c[1]} rectangle
         </h3>
       ) : (
-        <h3>Neither rectangle is contained within the other</h3>
+        <h3>There is no containment</h3>
       )}
     </div>
   );
