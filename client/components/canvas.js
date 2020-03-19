@@ -11,8 +11,8 @@ class Canvas extends Component {
       rect1: {
         x: 0,
         y: 0,
-        width: 100,
-        height: 100,
+        width: 200,
+        height: 400,
         fill: "red",
         //coordinates topleft, topright, botleft, botright
         tlc: function() {
@@ -31,7 +31,7 @@ class Canvas extends Component {
       rect2: {
         x: 50,
         y: 50,
-        width: 100,
+        width: 500,
         height: 100,
         fill: "blue",
         tlc: function() {
@@ -65,7 +65,7 @@ class Canvas extends Component {
     return (
       <div id="canvas">
         <div id="rect-info">
-          <h3>Red Rectangle</h3>
+          <h3 className="red">Red Rectangle</h3>
           <h3>
             Top Left Coordinate: ({this.state.rect1.tlc().x},
             {this.state.rect1.tlc().y})
@@ -83,8 +83,8 @@ class Canvas extends Component {
             {this.state.rect1.brc().y})
           </h3>
           <br />
-          <br />
-          <h3>Blue Rectangle</h3>
+
+          <h3 className="blue">Blue Rectangle</h3>
           <h3>
             Top Left Coordinate: ({this.state.rect2.tlc().x},
             {this.state.rect2.tlc().y})

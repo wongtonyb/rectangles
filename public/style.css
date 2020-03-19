@@ -11,4 +11,13 @@
 
 #analyze {
   color: green;
+  width: 450px;
+}
+
+#rect-info .red {
+  color: red;
+}
+
+#rect-info .blue {
+  color: blue;
 }

@@ -372,4 +372,74 @@ describe("Intersection", () => {
       ]);
     });
   });
+  //four points
+  describe("Four-Point Intersection", () => {
+    it("Horiztonal overlap", () => {
+      expect(
+        intersection(
+          {
+            tl: { x: 1, y: 0 },
+            tr: { x: 2, y: 0 },
+            bl: { x: 1, y: 3 },
+            br: { x: 2, y: 3 }
+          },
+          {
+            tl: { x: 0, y: 1 },
+            tr: { x: 3, y: 1 },
+            bl: { x: 0, y: 2 },
+            br: { x: 3, y: 2 }
+          }
+        )
+      ).to.have.deep.members([
+        [1, 1],
+        [2, 1],
+        [1, 2],
+        [2, 2]
+      ]);
+    });
+    it("Vertical Overlap", () => {
+      expect(
+        intersection(
+          {
+            tl: { x: 0, y: 1 },
+            tr: { x: 3, y: 1 },
+            bl: { x: 0, y: 2 },
+            br: { x: 3, y: 2 }
+          },
+          {
+            tl: { x: 1, y: 0 },
+            tr: { x: 2, y: 0 },
+            bl: { x: 1, y: 3 },
+            br: { x: 2, y: 3 }
+          }
+        )
+      ).to.have.deep.members([
+        [1, 1],
+        [2, 1],
+        [1, 2],
+        [2, 2]
+      ]);
+    });
+  });
+  //one point
+  describe("One-Point Intersection", () => {
+    it("Returns only one point of intersection", () => {
+      expect(
+        intersection(
+          {
+            tl: { x: 0, y: 0 },
+            tr: { x: 1, y: 0 },
+            bl: { x: 0, y: 2 },
+            br: { x: 1, y: 2 }
+          },
+          {
+            tl: { x: 0, y: 1 },
+            tr: { x: 2, y: 1 },
+            bl: { x: 0, y: 2 },
+            br: { x: 2, y: 2 }
+          }
+        )
+      ).to.have.deep.members([[1, 1]]);
+    });
+  });
 });
