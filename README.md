@@ -53,3 +53,5 @@ Mocha/Chai - TDD
 React - UI
 
 Konva - Shape Canvas
+
+More in depth dependencies in package.json
