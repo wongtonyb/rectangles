@@ -2,7 +2,7 @@
 
 # Installation
 
-Follow the installation guide below to set up and run this source code locally on Mac.
+Follow the installation guide below to set up and run this source code locally
 
 ## Clone Repo
 
