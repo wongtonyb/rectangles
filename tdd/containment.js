@@ -1,9 +1,7 @@
 /*
 For the case of this function,
-Note if smaller rectangle is completely inside the bigger rectangle, 
-but aligned on one or more sides, it is still NOT considered wholly contained
-
-wholly contained will be defined as within the borders of the bigger rectangle (not touching)
+Containment will be defined as smaller rectangle to be within (not touching)
+the border of the bigger rectangle
 */
 
 const containment = (red, blue) => {
@@ -30,7 +28,7 @@ const containment = (red, blue) => {
     blue.br.y < red.br.y &&
     blue.br.y > red.tl.y
   ) {
-    //returning this instead of just true for UI integration
+    //returning this instead of just true for more convienent UI integration
     return ["blue", "red"];
   }
   //check red inside blue

@@ -17,17 +17,18 @@ cd rectangles
 npm install
 ```
 
-## Start server
+## Build & Start server
 
 ```
-nodemon server
+npm run build
+npm run start
 ```
 
 open a browser (preferably Chrome) and direct to localhost:4000
 
 # Test Driven Development (TDD)
 
-Mocha and Chai are used for testing
+Mocha and Chai were used for testing
 
 Direct to tdd folder
 
@@ -35,7 +36,7 @@ Direct to tdd folder
 cd tdd
 ```
 
-Run desired test spec as follow
+Run desired test spec with following commands
 
 ```
 mocha intersection.spec.js

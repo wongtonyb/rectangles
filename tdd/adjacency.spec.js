@@ -23,7 +23,7 @@ describe("adjacency", () => {
         )
       ).to.equal(false);
     });
-    it("Returns false if overlapy and sharing sides", () => {
+    it("Returns false if overlaping and sharing sides", () => {
       expect(
         adjacency(
           {

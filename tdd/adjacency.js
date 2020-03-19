@@ -1,5 +1,10 @@
 /*
-adjacency will be defined as no overlapping and only one side touching
+For the case of this function,
+Adjacency will be defined as no overlapping and only one side touching
+
+In other words,
+LEFT side of one rectangle can only touch RIGHT side of the other rectangle
+TOP side of one rectangle can only touch BOTTOM side of the other rectangle
 */
 
 const adjaceny = (red, blue) => {

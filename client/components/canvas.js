@@ -9,10 +9,10 @@ class Canvas extends Component {
     this.state = {
       //properties of the two rectangles
       rect1: {
-        x: 0,
-        y: 0,
+        x: 300,
+        y: 100,
         width: 200,
-        height: 400,
+        height: 200,
         fill: "red",
         //coordinates topleft, topright, botleft, botright
         tlc: function() {
@@ -29,9 +29,9 @@ class Canvas extends Component {
         }
       },
       rect2: {
-        x: 50,
-        y: 50,
-        width: 500,
+        x: 200,
+        y: 150,
+        width: 400,
         height: 100,
         fill: "blue",
         tlc: function() {
@@ -66,38 +66,38 @@ class Canvas extends Component {
       <div id="canvas">
         <div id="rect-info">
           <h3 className="red">Red Rectangle</h3>
-          <h3>
+          <h3 className="red">
             Top Left Coordinate: ({this.state.rect1.tlc().x},
             {this.state.rect1.tlc().y})
           </h3>
-          <h3>
+          <h3 className="red">
             Top Right Coordinate: ({this.state.rect1.trc().x},
             {this.state.rect1.trc().y})
           </h3>
-          <h3>
+          <h3 className="red">
             Bot Left Coordinate: ({this.state.rect1.blc().x},
             {this.state.rect1.blc().y})
           </h3>
-          <h3>
+          <h3 className="red">
             Bot Right Coordinate: ({this.state.rect1.brc().x},
             {this.state.rect1.brc().y})
           </h3>
           <br />
 
           <h3 className="blue">Blue Rectangle</h3>
-          <h3>
+          <h3 className="blue">
             Top Left Coordinate: ({this.state.rect2.tlc().x},
             {this.state.rect2.tlc().y})
           </h3>
-          <h3>
+          <h3 className="blue">
             Top Right Coordinate: ({this.state.rect2.trc().x},
             {this.state.rect2.trc().y})
           </h3>
-          <h3>
+          <h3 className="blue">
             Bot Left Coordinate: ({this.state.rect2.blc().x},
             {this.state.rect2.blc().y})
           </h3>
-          <h3>
+          <h3 className="blue">
             Bot Right Coordinate: ({this.state.rect2.brc().x},
             {this.state.rect2.brc().y})
           </h3>
@@ -151,7 +151,7 @@ class Canvas extends Component {
         </div>
         <div id="resize">
           <h2>Resize</h2>
-          <h3>Red Rectangle Dimensions</h3>
+          <h3 className="red">Red Rectangle Dimensions</h3>
           <label>
             Width:
             <input
@@ -169,7 +169,7 @@ class Canvas extends Component {
             />
           </label>
           <br />
-          <h3>Blue Rectangle Dimensions</h3>
+          <h3 className="blue">Blue Rectangle Dimensions</h3>
           <label>
             Width:
             <input

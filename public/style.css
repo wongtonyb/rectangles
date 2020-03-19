@@ -14,10 +14,10 @@
   width: 450px;
 }
 
-#rect-info .red {
+.red {
   color: red;
 }
 
-#rect-info .blue {
+.blue {
   color: blue;
 }
