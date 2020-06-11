@@ -1,5 +1,7 @@
 # Reactangles
 
+![Preview](/public/assets/preview.png)
+
 # Installation
 
 Follow the installation guide below to set up and run this source code locally on Mac.
